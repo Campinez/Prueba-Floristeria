@@ -2,13 +2,27 @@ package domain;
 
 public class Tree extends Product {
 	
-	float heigh;
+	private double height;
 	
-	public Tree (String nameProduct, float price, int stock, float heigh) {
+	
+	public Tree(int code, String name, double price, int stock, double height, String category) throws Exception {
+		super(code, name, price, stock, category);
 		
-		super  ( nameProduct,  price,  stock);
-		this.heigh=heigh;
-		
+		if(height<=0)
+			throw new Exception();
+		if(!category.equalsIgnoreCase("tree"))
+			throw new Exception();
+
+		this.height = height;
+	
 	}
 
+	public  double getHeight() {
+		return height;
+	}
+
+	public  void setHeight(double height) {
+		this.height = height;
+	}
+	
 }
